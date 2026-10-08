@@ -1,0 +1,208 @@
+/* Mission Viejo Nadadores — replica styling.
+   Their site (Squarespace) is white, set in Poppins, with the club's navy
+   rgb(44,54,135) and its "blue and gold". This is hand-written CSS that reads the same. */
+
+:root{
+  --navy:    #2c3687;
+  --navy-d:  #1d2460;
+  --navy-l:  #4652b5;
+  --blue:    #3f5bd8;
+  --blue-d:  #2c3687;
+  --blue-l:  #7d8ce0;
+  --gold:    #f2b705;
+  --gold-d:  #c99700;
+  --ink:     #14161f;
+  --muted:   #596075;
+  --line:    #e5e7ef;
+  --wash:    #f7f7f9;
+}
+
+*{ box-sizing:border-box }
+html{ scroll-behavior:smooth }
+body{
+  margin:0; background:#fff; color:var(--ink);
+  font:16px/1.65 Poppins, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{ color:var(--blue-d); text-decoration:none }
+a:hover{ text-decoration:underline }
+img{ max-width:100% }
+
+/* ── The disclaimer. In the page, not only in the source. ───────────────── */
+.preview-note{
+  background:#111820; color:#e8eef5; font-size:13px; line-height:1.5;
+  padding:10px 20px; text-align:center;
+}
+.preview-note b{ color:var(--gold) }
+.preview-note a{ color:#fff; text-decoration:underline }
+
+/* ── Masthead ───────────────────────────────────────────────────────────── */
+header.site{
+  position:sticky; top:0; z-index:20; background:#fff;
+  border-bottom:1px solid var(--line); box-shadow:0 1px 3px rgba(44,54,135,.06);
+}
+.bar{
+  max-width:1200px; margin:0 auto; padding:10px 24px;
+  display:flex; align-items:center; gap:18px;
+}
+.bar img{ height:48px; width:auto }
+nav.site{ margin-left:auto; display:flex; align-items:center; gap:4px; flex-wrap:wrap }
+nav.site a, nav.site span{
+  color:var(--navy); font-size:14.5px; font-weight:500; padding:8px 12px; border-radius:7px;
+  white-space:nowrap;
+}
+nav.site a:hover{ background:var(--wash); text-decoration:none }
+nav.site .here{ background:var(--navy); color:#fff }
+nav.site .cta{
+  background:var(--gold); color:var(--navy-d); font-weight:700; padding:9px 18px; border-radius:999px;
+}
+@media (max-width:900px){
+  .bar{ flex-wrap:wrap; gap:10px; padding:10px 16px }
+  nav.site{ margin-left:0; width:100%; gap:2px }
+  nav.site a, nav.site span{ padding:6px 9px; font-size:13.5px }
+}
+
+/* ── Hero ───────────────────────────────────────────────────────────────── */
+.hero{
+  background:linear-gradient(135deg, var(--navy-d) 0%, var(--navy) 45%, var(--navy-l) 100%);
+  color:#fff; padding:52px 24px 58px;
+}
+.hero .in{ max-width:1200px; margin:0 auto }
+.hero .eyebrow{
+  font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--gold); margin:0 0 10px;
+}
+.hero h1{ margin:0; font-size:clamp(30px,5vw,46px); line-height:1.12; font-weight:800; letter-spacing:-.02em }
+.hero p{ margin:14px 0 0; font-size:18px; max-width:64ch; color:#d3e2f3 }
+@media (max-width:640px){ .hero{ padding:36px 16px 40px } .hero p{ font-size:16px } }
+
+/* ── Layout ─────────────────────────────────────────────────────────────── */
+main{ max-width:1200px; margin:0 auto; padding:44px 24px 10px }
+@media (max-width:640px){ main{ padding:28px 16px 6px } }
+section{ margin:0 0 48px; scroll-margin-top:90px }
+h2{ font-size:clamp(23px,3.2vw,30px); line-height:1.2; font-weight:800; letter-spacing:-.015em; margin:0 0 6px; color:var(--navy) }
+h3{ font-size:19px; font-weight:700; margin:26px 0 6px; color:var(--navy) }
+.sub{ color:var(--muted); font-size:16.5px; margin:0 0 22px; max-width:72ch }
+p{ margin:10px 0 }
+
+.cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px }
+.card{ border:1px solid var(--line); border-radius:14px; padding:20px 22px; background:#fff }
+.card h4{ margin:0 0 6px; font-size:17px; color:var(--navy) }
+.card p{ margin:0; color:var(--muted); font-size:15px }
+.card .big{ font-size:30px; font-weight:800; color:var(--navy); letter-spacing:-.02em }
+.card ul{ margin:10px 0 0; padding-left:20px; color:var(--muted); font-size:15px }
+.card.featured{ border:2px solid var(--gold); position:relative }
+.card.featured .tag{
+  position:absolute; top:-11px; left:22px; background:var(--gold); color:var(--navy-d);
+  font-size:11px; font-weight:800; letter-spacing:.1em; padding:3px 10px; border-radius:999px;
+}
+
+/* ── The calendar, where the schedule tables used to be ─────────────────── */
+.cal-head{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:0 0 4px }
+.cal-head h2{ margin:0 }
+.live{
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
+  color:#fff; background:var(--blue-d); padding:4px 10px; border-radius:999px;
+}
+.live::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--gold) }
+.frame{
+  border:1px solid var(--line); border-radius:14px; overflow:hidden; background:#fff;
+  box-shadow:0 10px 30px rgba(44,54,135,.12);
+}
+.frame iframe{ display:block; width:100%; height:740px; border:0 }
+@media (max-width:760px){ .frame iframe{ height:580px } }
+.cal-foot{ font-size:14.5px; color:var(--muted); margin:10px 0 0 }
+
+/* ── The callout that says what this preview changed and why ────────────── */
+.finding{
+  margin:22px 0 0; padding:18px 20px; border-left:4px solid var(--gold);
+  background:var(--wash); border-radius:0 12px 12px 0; font-size:15px;
+}
+.finding b{ color:var(--navy) }
+.finding ul{ margin:8px 0 0; padding-left:20px }
+.finding li{ margin:5px 0 }
+.was{
+  display:inline-block; background:#fff; border:1px solid var(--line); border-radius:6px;
+  padding:1px 7px; font-size:13.5px; color:var(--muted); text-decoration:line-through;
+}
+.now{
+  display:inline-block; background:#2c3687; color:#fff; border-radius:6px;
+  padding:1px 7px; font-size:13.5px; font-weight:600;
+}
+
+/* ── Plain content bits kept from their pages ───────────────────────────── */
+.note{ background:var(--wash); border:1px solid var(--line); border-radius:12px; padding:16px 20px; font-size:15px }
+.note b{ color:var(--navy) }
+ol.steps{ counter-reset:s; list-style:none; padding:0; margin:14px 0 0 }
+ol.steps li{ counter-increment:s; position:relative; padding:0 0 0 46px; margin:0 0 18px }
+ol.steps li::before{
+  content:counter(s); position:absolute; left:0; top:0; width:32px; height:32px; border-radius:50%;
+  background:var(--navy); color:#fff; font-weight:700; display:grid; place-items:center; font-size:15px;
+}
+ol.steps b{ color:var(--navy) }
+details{ border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin:0 0 10px }
+details summary{ cursor:pointer; font-weight:600; color:var(--navy) }
+details p{ margin:8px 0 0; color:var(--muted); font-size:15px }
+
+.btn{
+  display:inline-block; background:var(--gold); color:var(--navy-d); font-weight:700;
+  padding:11px 24px; border-radius:999px; margin-top:6px;
+}
+.btn:hover{ background:var(--gold-d); text-decoration:none }
+.btn.ghost{ background:transparent; color:var(--navy); border:2px solid var(--navy) }
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+footer.site{ background:var(--navy-d); color:#c8d8ea; margin-top:40px; padding:40px 24px 26px; font-size:14.5px }
+footer.site .in{ max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:28px }
+@media (max-width:760px){ footer.site .in{ grid-template-columns:1fr } }
+footer.site b{ color:#fff; display:block; margin-bottom:8px }
+footer.site a{ color:#c8d8ea }
+footer.site ul{ list-style:none; margin:0; padding:0 }
+footer.site li{ margin:4px 0 }
+.fine{
+  max-width:1200px; margin:26px auto 0; padding-top:18px; border-top:1px solid rgba(255,255,255,.14);
+  font-size:13px; color:#9fb4cc;
+}
+.fine a{ color:#c8d8ea }
+
+/* ── The strip linking every page in this preview ───────────────────────── */
+nav.strip{
+  display:flex; gap:2px; overflow-x:auto; scrollbar-width:thin;
+  max-width:1200px; margin:0 auto; padding:0 20px 8px;
+}
+nav.strip a{
+  flex:none; font-size:13px; font-weight:500; color:var(--muted);
+  padding:5px 10px; border-radius:999px; white-space:nowrap;
+}
+nav.strip a:hover{ background:var(--wash); color:var(--navy); text-decoration:none }
+nav.strip a.on{ background:var(--wash); color:var(--navy); font-weight:700; box-shadow:inset 0 0 0 1px var(--line) }
+@media (max-width:640px){ nav.strip{ padding:0 12px 8px } }
+
+/* ── Tables kept from their pages (holiday list, posted times) ──────────── */
+table.plain{ width:100%; border-collapse:collapse; font-size:15px; margin:8px 0 0 }
+table.plain th, table.plain td{ text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top }
+table.plain th{ font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:700 }
+table.plain td.ok{ color:#1d7a46; font-weight:600 }
+table.plain td.closed{ color:#b42318; font-weight:600 }
+table.plain td.ltd{ color:#9a6700; font-weight:600 }
+.tablewrap{ overflow-x:auto }
+.pill{ display:inline-block; font-size:12px; font-weight:700; padding:2px 9px; border-radius:999px; background:var(--wash); color:var(--navy); border:1px solid var(--line) }
+.cards a.card{ color:inherit; display:block }
+.cards a.card:hover{ text-decoration:none; border-color:var(--blue-l); box-shadow:0 6px 18px rgba(44,54,135,.08) }
+.cards a.card .go{ display:block; margin-top:10px; font-size:14px; font-weight:600; color:var(--blue-d) }
+@media (max-width:640px){ header.site{ position:static } }
+
+/* ── Their home page opens on the night aerial of the Marguerite pools ──── */
+.hero.photo{
+  background:
+    linear-gradient(180deg, rgba(20,22,40,.55) 0%, rgba(20,22,40,.72) 100%),
+    url("https://images.squarespace-cdn.com/content/v1/6051c74da87b5d5b5c827b28/1621895265489-OLHGASZ5Y555GGU37XGD/MAC%252B1.jpg?format=1500w") center/cover no-repeat;
+  padding:90px 24px 96px; text-align:center;
+}
+.hero.photo p{ margin-left:auto; margin-right:auto; color:#eef0fa }
+@media (max-width:640px){ .hero.photo{ padding:60px 16px 64px } }
+.facts{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin:14px 0 0 }
+.facts div{ border:1px solid var(--line); border-radius:12px; padding:14px 16px; background:#fff }
+.facts b{ display:block; color:var(--navy); font-size:15px }
+.facts span{ color:var(--muted); font-size:14px }
